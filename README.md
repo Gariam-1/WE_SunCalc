@@ -34,10 +34,10 @@ console.log(`Sunrise: ${sunrise}, Sunset: ${sunset}`);
 
 ### Methods
 
-- `setLocation(coordinates, timezone)` / `getLocation(coordinates)`
+- `setLocation(coordinates, timezone)` / `getLocation()`
   Set/get the latitude, longitude and altitude for calculations.
 
-- `setDateTime(date)` / `getDateTime(date)`
+- `setDateTime(date)` / `getDateTime()`
   Set/get the date and time for calculations.
 
 - `getTimezone()`
