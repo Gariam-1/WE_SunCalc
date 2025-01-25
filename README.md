@@ -57,6 +57,7 @@ console.log(`Sunrise: ${sunrise}, Sunset: ${sunset}`);
 
 ### Performance
 To utilize the performance optimization provided by this it's necessary to create a SunCalc object once as a global variable, then use setDateTime and SetLocation to manipulate it later in the code and in the following frames.
+
 This is because those functions actually run a recalculation only when necessary, if the location and date and time did not change no recalculation will be done, and the `get` methods will just return the previously stored results.
 
 ## Limitations
