@@ -200,7 +200,7 @@ class SunCalc {
 	 * Returns the geographical coordinates in degrees as a Vec3 object.
 	 * @returns {Vec3} Vec3(latitude, longitude, altitude in meters)
 	 */
-	getCoordinates(){
+	getLocation(){
 		return new Vec3(this._latitude_ * 57.2957795, this._longitude_ * 57.2957795, this._altitude_);
 	}
 
