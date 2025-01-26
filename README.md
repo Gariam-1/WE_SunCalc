@@ -44,7 +44,7 @@ console.log(`Sunrise: ${sunrise}, Sunset: ${sunset}`);
   Returns the timezone currently used for calculations.
 
 - `getSunPosition()`
-  Returns a Vec2 object with `azimuth` and `elevation` of the sun.
+  Returns a Vec2 object with azimuth (`x`) and elevation (`y`) of the sun.
 
 - `getSunrise()` / `getSunset()`
   Returns the Date object for sunrise and sunset.
@@ -53,7 +53,7 @@ console.log(`Sunrise: ${sunrise}, Sunset: ${sunset}`);
   Returns the Date object for solar noon and solar midnight.
 
 - `get...Dawn()` / `get...Dusk()`
-  Returns the Date object for the three types of dawn and dusk.
+  Returns the Date object for the three types of dawn and dusk: civil, nautical and astronomical.
 
 ### Performance
 To utilize the performance optimization provided by this it's necessary to create a SunCalc object once as a global variable, then use setDateTime and SetLocation to manipulate it later in the code and in the following frames.
