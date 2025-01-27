@@ -3,7 +3,7 @@
  * It also provides times for key solar events, including sunrise, sunset, solar noon/midnight, and twilight phases (civil, nautical, and astronomical).
  *
  * The calculations account for geographical coordinates, time zones, altitude, and atmospheric refraction for improved accuracy.
- * 
+ *
  * This can provide dates and times only as long as the two opposites are not more that 24 hours apart.
  * @author Gariam
  */
@@ -179,20 +179,19 @@ class SunCalc {
 
 	/**
 	 * Changes the date and time reference for the calculations.
-	 * @param {Date} date - the Date object with date and time information
+	 * @param {Date=} date - the Date object with date and time information
 	 */
 	setDateTime(date){
-		newDate = date.toISOString();
-		currentDate = this._date_.toISOString();
+		date = date || new Date();
+		const newDate = date.toISOString();
+		const currentDate = this._date_.toISOString();
 
-		if (currentDate.substring(0, 19) != newDate.substring(0, 19)){ // Recalculate once per second
-			this._date_ = new Date(newDate);
-			this._updateDynamic_();
+		this._date_ = new Date(newDate);
+		this._updateDynamic_();
 
-			if (currentDate.substring(0, 10) != this._last_date_.substring(0, 10)){ // Recalculate once a day
-				this._last_date_ = new Date(currentDate).toISOString();
-				this._updateStatic_();
-			}
+		if (currentDate.substring(0, 10) != this._last_date_.substring(0, 10)){ // Recalculate once a day
+			this._last_date_ = new Date(currentDate).toISOString();
+			this._updateStatic_();
 		}
 	}
 
