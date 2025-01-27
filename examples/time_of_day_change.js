@@ -3,6 +3,9 @@
  * with the difference being that the times are not static, but dinamically calculated using the SunCalc class.
  * 
  * The location is provided by script properties, to make it possible to bind them to user properties and have the end user input their own location.
+ *
+ * Be mindful, though, that this script will not work for certain periods of time at high latitude values, the higher you go the worse this will be.
+ * This problem starts appearing at values higher than 65 and lower than -65 degrees.
  */
 
 'use strict';
