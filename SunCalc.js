@@ -10,8 +10,8 @@
 class SunCalc {
 	/**
 	 * @param {(Vec2 | Vec3)} coordinates - geographical coordinates of the location, in degrees. Vec3(latitude, longitude, altitude in meters)
-	 * @param {Date=} date - reference date and time
-	 * @param {number=} timezone - offset in minutes from UTC of the specified location. If missing the system's timezone will be used
+	 * @param {Date=} date - reference date and time. If missing, current system time will be used.
+	 * @param {number=} timezone - offset in minutes from UTC for the specified location. If missing, current system timezone will be used.
 	 */
 	constructor(coordinates, date, timezone){
 		this._latitude_ = coordinates.x * 0.01745329;
@@ -156,7 +156,7 @@ class SunCalc {
 	/**
 	 * Changes the geographical coordinates.
 	 * @param {(Vec2 | Vec3)} coordinates - geographical coordinates of the location, in degrees. Vec3(latitude, longitude, altitude in meters)
-	 * @param {number=} timezone - offset in minutes from UTC of the specified location
+	 * @param {number=} timezone - offset in minutes from UTC for the specified location.
 	 */
 	setLocation(coordinates, timezone){
 		timezone = timezone ? Math.floor(timezone) : this._timezone_;
@@ -179,7 +179,7 @@ class SunCalc {
 
 	/**
 	 * Changes the date and time reference for the calculations.
-	 * @param {Date=} date - the Date object with date and time information
+	 * @param {Date=} date - the Date object with date and time information. If missing, current system time will be used.
 	 */
 	setDateTime(date){
 		date = date || new Date();
@@ -213,7 +213,7 @@ class SunCalc {
 
 	/**
 	 * Returns the Date object with current reference date and time.
-	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used
+	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used.
 	 * @returns {Date}
 	 */
 	getDateTime(timezone){
@@ -237,7 +237,7 @@ class SunCalc {
 
 	/**
 	 * Returns the time of sunrise for the reference date and location.
-	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used
+	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used.
 	 * @returns {Date}
 	 */
 	getSunrise(timezone){
@@ -249,7 +249,7 @@ class SunCalc {
 
 	/**
 	 * Returns the time of sunset for the reference date and location.
-	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used
+	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used.
 	 * @returns {Date}
 	 */
 	getSunset(timezone){
@@ -261,7 +261,7 @@ class SunCalc {
 
 	/**
 	 * Returns the time of solar noon for the reference date and location.
-	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used
+	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used.
 	 * @returns {Date}
 	 */
 	getSolarNoon(timezone){
@@ -273,7 +273,7 @@ class SunCalc {
 
 	/**
 	 * Returns the time of solar midnight for the reference date and location.
-	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used
+	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used.
 	 * @returns {Date}
 	 */
 	getSolarMidnight(timezone){
@@ -287,7 +287,7 @@ class SunCalc {
 	 * Returns the time of civil dawn for the reference date and location.
 	 * 
 	 * Civil dawn is when the sun is 6 degrees below the horizon before sunrise.
-	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used
+	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used.
 	 * @returns {Date}
 	 */
 	getCivilDawn(timezone){
@@ -301,7 +301,7 @@ class SunCalc {
 	 * Returns the time of civil dusk for the reference date and location.
 	 * 
 	 * Civil dusk is when the sun is 6 degrees below the horizon after sunset.
-	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used
+	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used.
 	 * @returns {Date}
 	 */
 	getCivilDusk(timezone){
@@ -315,7 +315,7 @@ class SunCalc {
 	 * Returns the time of Nautical dawn for the reference date and location.
 	 * 
 	 * Nautical dawn is when the sun is 12 degrees below the horizon before sunrise.
-	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used
+	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used.
 	 * @returns {Date}
 	 */
 	getNauticalDawn(timezone){
@@ -329,7 +329,7 @@ class SunCalc {
 	 * Returns the time of Nautical dusk for the reference date and location.
 	 * 
 	 * Nautical dusk is when the sun is 12 degrees below the horizon after sunset.
-	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used
+	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used.
 	 * @returns {Date}
 	 */
 	getNauticalDusk(timezone){
@@ -343,7 +343,7 @@ class SunCalc {
 	 * Returns the time of Nautical dawn for the reference date and location.
 	 * 
 	 * Astronomical dawn is when the sun is 18 degrees below the horizon before sunrise.
-	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used
+	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used.
 	 * @returns {Date}
 	 */
 	getAstronomicalDawn(timezone){
@@ -357,7 +357,7 @@ class SunCalc {
 	 * Returns the time of Nautical dusk for the reference date and location.
 	 * 
 	 * Astronomical dusk is when the sun is 18 degrees below the horizon after sunset.
-	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used
+	 * @param {number=} timezone - offset in minutes from UTC. If missing, the one specified at object creation is used.
 	 * @returns {Date}
 	 */
 	getAstronomicalDusk(timezone){
